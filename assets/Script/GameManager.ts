@@ -1,5 +1,6 @@
 import { _decorator, CCInteger, Component, instantiate, Label, Node, Prefab, Vec3 } from 'cc';
 import {BLOCK_SIZE, PlayerController} from "db://assets/Script/PlayerController";
+
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -73,8 +74,6 @@ export class GameManager extends Component {
         }, 0.1);
     }
 
-
-
     setState(value: GameState) {
         switch (value) {
             case GameState.GS_INIT:
@@ -92,7 +91,7 @@ export class GameManager extends Component {
         for (let i = 1; i < this.roadLength - 1; i++) {
             if (this._road[i - 1] === BlockTypes.BT_NONE) {
                 this._road.push(BlockTypes.BT_STONE);
-            } else  {
+            } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
